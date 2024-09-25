@@ -1,0 +1,56 @@
+public class Calculator {
+    public static int Sum(int x, int y) {
+        return x + y;
+    }
+
+    public static int Decrease(int x, int y) {
+        return x - y;
+    }
+
+    public static int Multiply(int x, int y) {
+        return x * y;
+    }
+
+    public static String Divide(int x, int y) {
+        if (y != 0) {
+            return String.valueOf((float) x / y); // cast x to float
+        } else {
+            return "Error: Pembagian dengan nol tidak diperbolehkan.";
+        }
+    }
+}
+import java.util.Scanner;
+
+public class MainClass {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Masukkan angka pertama: ");
+        int x = input.nextInt();
+
+        System.out.print("Masukkan angka kedua: ");
+        int y = input.nextInt();
+
+        System.out.print("Pilih operasi (+, -, *, /): ");
+        char operator = input.next().charAt(0);
+
+        switch (operator) {
+            case '+':
+                System.out.println("Hasil: " + Calculator.Sum(x, y));
+                break;
+            case '-':
+                System.out.println("Hasil: " + Calculator.Decrease(x, y));
+                break;
+            case '*':
+                System.out.println("Hasil: " + Calculator.Multiply(x, y));
+                break;
+            case '/':
+                System.out.println("Hasil: " + Calculator.Divide(x, y));
+                break;
+            default:
+                System.out.println("Operator tidak valid.");
+        }
+
+        input.close();
+    }
+}
